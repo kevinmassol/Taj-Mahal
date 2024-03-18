@@ -11,13 +11,17 @@ import SwiftUI
 struct WelcomeView: View {
     var body: some View {
         NavigationStack {
-            Image("TajMahal")
+            PresentationImageView()
             Spacer()
             NavigationLink {
                 MenuView()
             } label : {
-                Text("Menu")
+                Text("Accéder au menu")
+                    .foregroundStyle(Color.white)
             }
+            .frame(width: 335, height: 40)
+            .background(.customRed)
+            .cornerRadius(10)
         }
     }
 }

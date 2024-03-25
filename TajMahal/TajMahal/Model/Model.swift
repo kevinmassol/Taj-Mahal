@@ -15,11 +15,13 @@ enum SpiceLevel {
 }
 
 // Représente l'objet "plat", qui figure sur la carte du menu
-struct Dish {
-    var name: String
-    var description: String
-    var allergens: String
-    var ingredients: String
-    var spiceLevel: SpiceLevel
-    var imageName: String
+struct Dish: Identifiable {
+    let id = UUID()
+    let name: String
+    let description: String
+    let allergens: String
+    let ingredients: String
+    let spiceLevel: SpiceLevel
+    let imageName: String
+    let price: String
 }

@@ -17,7 +17,7 @@ struct ViewModel {
           description: "Délicieux chaussons frits garnis de légumes épicés",
           allergens: "Farine de blé",
           ingredients: "Mélange de légumes (pommes de terre, petits pois, carottes), épices indiennes, pâte à samosa, huile",
-          spiceLevel: .light,
+          spiceLevel: .medium,
           imageName: "Samosas",
           price: "5,50€"
          ),
@@ -25,7 +25,7 @@ struct ViewModel {
           description: "Beignets de légumes enrobés de pâte épicée et frits",
           allergens: "Sans allergènes majeurs",
           ingredients: "Légumes assortis (aubergines, oignons, épinards), farine de pois chiches, épices, huile",
-          spiceLevel: .medium,
+          spiceLevel: .light,
           imageName: "Pakoras",
           price: "5,00€"
          ),

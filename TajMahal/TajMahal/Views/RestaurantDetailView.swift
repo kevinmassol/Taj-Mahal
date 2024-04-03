@@ -7,12 +7,7 @@
 
 import SwiftUI
 
-struct DetailRestaurantView: View {
-    
-    let icon: String
-    let TextOnTheLeft: String
-    let TextOnTheRight: String
-    
+struct RestaurantDetailView: View {
     var body: some View {
         HStack {
             Image(icon)
@@ -25,12 +20,12 @@ struct DetailRestaurantView: View {
         }
         .font(.custom("PlusJakartaSans-SemiBold-600", size: 12))
         .frame(width: 335, height: 15)
-        .foregroundStyle(.lightGray)
+        .foregroundStyle(.customLightGray)
     }
 }
 
 #Preview {
-    DetailRestaurantView(
+    RestaurantDetailView(
         icon: "horloge",
         TextOnTheLeft: "Mardi",
         TextOnTheRight: "11h30 - 14h30・ 18h30 - 22h00"

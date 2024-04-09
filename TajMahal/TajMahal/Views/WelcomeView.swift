@@ -9,6 +9,9 @@ import SwiftUI
 
 // Page d'accueil
 struct WelcomeView: View {
+    
+    let font700 = "PlusJakartaSans-Bold-700"
+    
     var body: some View {
         NavigationStack {
             Image(.tajMahal)
@@ -29,7 +32,7 @@ struct WelcomeView: View {
             } label : {
                 Text("Accéder au menu")
                     .foregroundStyle(Color.white)
-                    .font(.custom("PlusJakartaSans-Bold-700", size: 16))
+                    .font(.custom(font700, size: 16))
             }
             .frame(width: 335, height: 40)
             .background(.customRed)

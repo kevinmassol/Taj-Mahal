@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct RestaurantDetailView: View {
+    
+    let detailData: RestaurantDetail
+    let font600 = "PlusJakartaSans-SemiBold-600"
+    
     var body: some View {
         HStack {
-            Image(icon)
+            Image(detailData.icon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 12, height: 12)
-            Text(TextOnTheLeft)
+            Text(detailData.leftText)
             Spacer()
-            Text(TextOnTheRight)
+            Text(detailData.rightText)
         }
-        .font(.custom("PlusJakartaSans-SemiBold-600", size: 12))
+        .font(.custom(font600, size: 12))
         .frame(width: 335, height: 15)
         .foregroundStyle(.customLightGray)
     }
 }
 
 #Preview {
-    RestaurantDetailView(
-        icon: "horloge",
-        TextOnTheLeft: "Mardi",
-        TextOnTheRight: "11h30 - 14h30・ 18h30 - 22h00"
-    )
+    RestaurantDetailView(detailData: details[0])
 }

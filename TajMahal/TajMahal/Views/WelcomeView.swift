@@ -11,15 +11,18 @@ import SwiftUI
 struct WelcomeView: View {
     var body: some View {
         NavigationStack {
-            PresentationImageView()
+            Image(.tajMahal)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 335, height: 423)
             Spacer()
-            InformationView()
+            RestaurantInfoView()
             Spacer()
-            DetailRestaurantView(icon: "horloge", TextOnTheLeft: "Mardi", TextOnTheRight: "11h30 - 14h30・ 18h30 - 22h00")
-            DetailRestaurantView(icon: "service", TextOnTheLeft: "Type de Service", TextOnTheRight: "À emporter")
-            DetailRestaurantView(icon: "localisation", TextOnTheLeft: "12 Avenue de la Brique - 75010 Paris", TextOnTheRight: "")
-            DetailRestaurantView(icon: "globe", TextOnTheLeft: "www.tajmahal.fr", TextOnTheRight: "")
-            DetailRestaurantView(icon: "phone", TextOnTheLeft: "06 12 34 56 78", TextOnTheRight: "")
+            VStack {
+                ForEach(details) { detail in
+                    RestaurantDetailView(detailData: detail)
+                }
+            }
             Spacer()
             NavigationLink {
                 MenuView()

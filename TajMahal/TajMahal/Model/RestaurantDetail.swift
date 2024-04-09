@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct RestaurantDetail {
+struct RestaurantDetail: Identifiable {
+    let id = UUID()
     let icon: String
     let leftText: String
     let rightText: String

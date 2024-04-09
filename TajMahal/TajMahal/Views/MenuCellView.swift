@@ -10,7 +10,10 @@ import SwiftUI
 struct MenuCellView: View {
     
     let dish: Dish
-    let spicy: SpiceLevel = .light
+    
+    let font600 = "PlusJakartaSans-SemiBold-600"
+    let font400 = "PlusJakartaSans-Regular-400"
+
     
     var body: some View {
         HStack(spacing: 18) {
@@ -21,41 +24,20 @@ struct MenuCellView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             VStack(alignment:.leading, spacing: 10) {
                 Text(dish.name)
-                    .font(.custom("PlusJakartaSans-SemiBold-600", size: 14))
+                    .font(.custom(font600, size: 14))
                 Text(dish.description)
-                    .font(.custom("PlusJakartaSans-Regular-400", size: 12))
+                    .font(.custom(font400, size: 12))
                 HStack {
                     Text(dish.price)
                         .font(
-                            .custom("PlusJakartaSans-SemiBold-600", size: 12)
+                        .custom(font600, size: 12)
                         )
                     Spacer()
                     ZStack {
                         Rectangle()
                             .frame(width: 52, height: 12)
                             .foregroundStyle(.white)
-                        HStack {
-                            switch spicy {
-                            case .light:
-                                HStack {
-                                    Image(.pimentRed)
-                                    Image(.piment)
-                                    Image(.piment)
-                                }
-                            case .medium:
-                                HStack {
-                                    Image(.pimentRed)
-                                    Image(.pimentRed)
-                                    Image(.piment)
-                                }
-                            case .hot:
-                                HStack {
-                                    Image(.pimentRed)
-                                    Image(.pimentRed)
-                                    Image(.pimentRed)
-                                }
-                            }
-                        }
+                        PepperView(spiceLevel: dish.spiceLevel)
                     }
                 }
             }
@@ -66,14 +48,6 @@ struct MenuCellView: View {
 
 #Preview {
     MenuCellView(
-        dish: Dish(
-            name: "Samosas aux légumes",
-            description: "Délicieux chaussons frits garnis de légumes épicés",
-            allergens: "Farine de blé",
-            ingredients: "Mélange de légumes (pommes de terre, petits pois, carottes), épices indiennes, pâte à samosa, huile",
-            spiceLevel: .medium,
-            imageName: "Samosas",
-            price: "5,50€"
-        )
+        dish: ViewModel().apetizerArray[0]
     )
 }

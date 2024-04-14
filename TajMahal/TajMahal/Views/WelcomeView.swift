@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// Page d'accueil
 struct WelcomeView: View {
     
     var body: some View {

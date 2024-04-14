@@ -10,6 +10,7 @@ import SwiftUI
 struct DescriptionOfTheDish: View {
     
     let dish: Dish
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {

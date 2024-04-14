@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     
     let viewModel: ViewModel = ViewModel()
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -56,7 +57,6 @@ struct MenuView: View {
                         Image(systemName: "chevron.left")
                             .foregroundStyle(.black)
                     }
-                    
                 }
             }
             .padding(.top, -40)

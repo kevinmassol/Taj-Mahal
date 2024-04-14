@@ -9,18 +9,15 @@ import SwiftUI
 
 struct RestaurantInfoView: View {
     
-    let font400 = "PlusJakartaSans-Regular-400"
-    let font700 = "PlusJakartaSans-Bold-700"
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Restaurant Indien")
                     .foregroundStyle(.customLightGray)
-                    .font(.custom(font400, size: 12))
+                    .font(.custom(ViewModel.font400, size: 12))
                 Text("Taj Mahal")
                     .foregroundStyle(.customDarkGray)
-                    .font(.custom(font700, size: 18))
+                    .font(.custom(ViewModel.font700, size: 18))
             }
             Spacer()
             Image(.logo)

@@ -10,9 +10,10 @@ import SwiftUI
 struct DescriptionOfTheDish: View {
     
     let dish: Dish
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             ZStack {
                 Image(dish.imageName)
                     .resizable()
@@ -20,45 +21,54 @@ struct DescriptionOfTheDish: View {
                     .frame(width: 335, height: 467)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .clipped()
-//                PepperView()
+                ZStack {
+                    RoundedRectangle(cornerRadius: 11)
+                        .frame(width: 74, height: 22)
+                        .foregroundStyle(.white)
+                    PepperView(spiceLevel: dish.spiceLevel)
+                }
+                .offset(x: 110, y: -210)
             }
             Spacer()
-            // Problème maquette couleur ? Titre et texte même couleur mais différent
             VStack(alignment: .leading, spacing: 16) {
                 Text("Allergènes:")
-                    .font(.custom("PlusJakartaSans-SemiBold-600", size: 12))
-                    .foregroundStyle(.lightGray)
+                    .fontWeight(.bold)
+                    .font(.custom(ViewModel.font600, size: 12))
+                    .foregroundStyle(.customLightGray)
                 Text(dish.allergens)
-                    .font(.custom("PlusJakartaSans-Regular-400", size: 12))
+                    .font(.custom(ViewModel.font400, size: 12))
                     .foregroundStyle(.customGray)
                 Divider()
                     .frame(width: 335, height: 0.75)
                     .foregroundStyle(.dividerGray)
                 Text("Ingrédients: ")
-                    .font(.custom("PlusJakartaSans-SemiBold-600", size: 12))
-                    .foregroundStyle(.lightGray)
+                    .font(.custom(ViewModel.font600, size: 12))
+                    .foregroundStyle(.customLightGray)
                 Text(dish.ingredients)
-                    .font(.custom("PlusJakartaSans-Regular-400", size: 12))
+                    .font(.custom(ViewModel.font400, size: 12))
                     .foregroundStyle(.customGray)
             }
+            .padding(.horizontal, 16)
             Spacer()
         }
-        .navigationTitle(dish.name)
-        .toolbarRole(.editor)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                HStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                    }
+                    Text(dish.name)
+                }
+                .foregroundStyle(.black)
+            }
+        }
         .padding()
     }
 }
 
 #Preview {
-    DescriptionOfTheDish(
-        dish: Dish(
-            name: "Samosas aux légumes",
-            description: "Délicieux chaussons frits garnis de légumes épicés",
-            allergens: "Farine de blé",
-            ingredients: "Mélange de légumes (pommes de terre, petits pois, carottes), épices indiennes, pâte à samosa, huile",
-            spiceLevel: .medium,
-            imageName: "Samosas",
-            price: "5,50€"
-        )
-    )
+    DescriptionOfTheDish(dish: ViewModel().mainCourseArray[0])
 }

@@ -11,7 +11,6 @@ struct PepperView: View {
     
     let spiceLevel: SpiceLevel
     
-    // Fonction pour afficher les images de piment en fonction du niveau de piquant
     func spiceLevelImages(level: SpiceLevel) -> some View {
         
         let redPepperImage = Image(.pimentRed)
@@ -21,7 +20,7 @@ struct PepperView: View {
             .resizable()
             .frame(width: 12, height: 12)
         
-        return HStack(spacing: 2) {
+        return HStack(spacing: 6) {
             ForEach(0..<level.rawValue, id: \.self) { spiceLevel in
                 redPepperImage
             }
@@ -32,13 +31,8 @@ struct PepperView: View {
     }
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 11)
-                .frame(width: 74, height: 22)
-                .offset(x: 110, y: -210)
-                .foregroundStyle(.white)
-            spiceLevelImages(level: spiceLevel)
-        }
+        spiceLevelImages(level: spiceLevel)
+            .frame(width: 58, height: 14)
     }
 }
 

@@ -11,10 +11,6 @@ struct MenuCellView: View {
     
     let dish: Dish
     
-    let font600 = "PlusJakartaSans-SemiBold-600"
-    let font400 = "PlusJakartaSans-Regular-400"
-
-    
     var body: some View {
         HStack(spacing: 18) {
             Image(dish.imageName)
@@ -24,21 +20,17 @@ struct MenuCellView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             VStack(alignment:.leading, spacing: 10) {
                 Text(dish.name)
-                    .font(.custom(font600, size: 14))
+                    .font(.custom(ViewModel.font600, size: 14))
+                    .foregroundStyle(.customLightGray)
                 Text(dish.description)
-                    .font(.custom(font400, size: 12))
+                    .font(.custom(ViewModel.font400, size: 12))
+                    .foregroundStyle(.customGray)
                 HStack {
                     Text(dish.price)
-                        .font(
-                        .custom(font600, size: 12)
-                        )
+                        .font(.custom(ViewModel.font600, size: 12))
+                        .foregroundStyle(.customLightGray)
                     Spacer()
-                    ZStack {
-                        Rectangle()
-                            .frame(width: 52, height: 12)
-                            .foregroundStyle(.white)
-                        PepperView(spiceLevel: dish.spiceLevel)
-                    }
+                    PepperView(spiceLevel: dish.spiceLevel)
                 }
             }
         }

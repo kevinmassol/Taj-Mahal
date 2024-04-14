@@ -7,11 +7,12 @@
 
 import Foundation
 
-// Strcture qui gère toute la logique du code
-// Fait l'intermédiaire entre l'affichage et les données
 struct ViewModel {
     
-    // Stocke les entrées qui composent le menu du restaurant
+    static let font700 = "PlusJakartaSans-Bold-700"
+    static let font600 = "PlusJakartaSans-SemiBold-600"
+    static let font400 = "PlusJakartaSans-Regular-400"
+
     let apetizerArray : [Dish] =
     [Dish(name: "Samosas aux légumes", 
           description: "Délicieux chaussons frits garnis de légumes épicés",
@@ -39,7 +40,6 @@ struct ViewModel {
          )
     ]
     
-    // Stocke les plats qui composent le menu du restaurant
     let mainCourseArray : [Dish] =
     [Dish(name: "Chicken Tikka Masala", 
           description: "Poulet mariné, grillé et servi dans une sauce masala",
